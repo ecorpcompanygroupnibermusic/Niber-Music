@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIBER MUSIC</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="Elements.css">
+<link rel="stylesheet" href="ID.css">
+<script src="Header.js"></script>
+<script src="Home.js"></script>
+<script src="Footer.js"></script>
+<script src="Menu.js"></script>
+<script src="Music.js"></script>
+<script src="Settings.js"></script>
+<script src="Notification.js"></script>
+<script src="Contact.js"></script>
+<script src="About.js"></script>
+<script src="Privacy Policy.js"></script>
+<script src="Help.js"></script>
+<script src="Functions.js"></script>
+<script src="Artist.js"></script>
+<script src="Login.js"></script>
+<body>
+    <header></header>
+    <div></div>
+    <footer></footer>
+    <div id="logIn"></div>
+</body>
+<script src="main.js"></script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+    import {getAuth,GoogleAuthProvider,signInWithPopup,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    //==============================================//
+    //log In With Google
+    let Google=document.querySelector('#Google');
+    let User;
+    Google.addEventListener('click',(e)=>{
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            result=User;
+            // IdP data available using getAdditionalUserInfo(result)
+            console.log(user);
+            localStorage.setItem('UserName',user.displayName);
+            Log.style.display="none";
+            UserAccount();
+            Auto();
+            //AutoLogIn
+            // ...
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+    });
+     //==============================================//
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCXkRFWxDZpcgoodtfJAyRm6y1btyXKOxw",
+      authDomain: "niber-music.firebaseapp.com",
+      databaseURL: "https://niber-music-default-rtdb.firebaseio.com",
+      projectId: "niber-music",
+      storageBucket: "niber-music.appspot.com",
+      messagingSenderId: "426203373090",
+      appId: "1:426203373090:web:49830510fbefcd78ae747b"
+    };
+    //===============================================//
+    // Get User Profile
+    let UserProfile=document.querySelector('.UserAccount');
+    UserProfile.addEventListener('click',(e)=>{
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+        
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            const Name = user.displayName;
+            const Email = user.email;
+            DIV.innerHTML="<br>"+"<h1>User Profile</h1>"+"<br>"+"<h1>UserName</h1>"+"<br>"+Name+"<br><br>"+"<h1>Email</h1>"+Email+"<br><br>"+"<h1>User Id Number</h1>"+"<br>"+uid+"<br><br>"+'<button style="color:red" onclick="SignOut()" id="MenuButtons">Sign Out</button>';
+            // ...
+        }
+        });
+    })
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider(app);
+    const auth = getAuth(app);
+    const user = auth.currentUser;
+  </script>
+</html>

@@ -1,0 +1,107 @@
+#Logo{
+    position: fixed;
+    right: 0;
+    padding: 10px;
+    font-size: 25px;
+}
+#footerIcon{
+    position: relative;
+    width: 36px;
+    height: 36px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#headerIcon{
+    position: relative;
+    width: 36px;
+    height: 36px;
+    padding: 5px;
+}
+#MenuButtons{
+    width: 80%;
+    height: 10%;
+    border-radius: 10px;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 10px 0px black;
+}
+#MusicButtons{
+    width: 30%;
+    height: 20%;
+    border-radius: 10px;
+    display: inline-table;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    box-shadow: 0px 0px 10px 0px black;
+}
+#UserProfile{
+    width: 20%;
+    border-radius: 100px;
+    margin-top: 5%;
+}
+#Notification{
+    width: 80%;
+    left: 10%;
+    top: 0;
+    height: auto;
+    margin-top: 1rem;
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+#logIn{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: white;
+    top: 0;
+    display: block;
+}
+#Logo1{
+    position: relative;
+    padding: 10px;
+    font-size: 40px;
+    top: 10%;
+}
+#LogInButton{
+    width: 50%;
+    height: 10%;
+    border-radius: 10px;
+    display: inline-table;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    box-shadow: 0px 0px 10px 0px black;
+}
+@media all and (max-width:800px){
+    #LogInButton{
+    width: 50%;
+    height: 10%;
+    border-radius: 10px;
+    display: inline-table;
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    box-shadow: 0px 0px 10px 0px black;
+}
+}
+#Logo3{
+    position: relative;
+    padding: 10px;
+    font-size: 20px;
+    top: 15%;
+}
+#Google{
+    position: relative;
+    width: 36px;
+}
